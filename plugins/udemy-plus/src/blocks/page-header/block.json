@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 2,
+  "name": "udemy-plus/page-header",
+  "title": "Page Header",
+  "category": "text",
+  "description": "Adds a page header",
+  "textdomain": "udemy-plus",
+  "attributes": {
+    "content": {
+      "type": "string"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css"
+}
