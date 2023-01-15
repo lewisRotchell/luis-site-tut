@@ -22,11 +22,21 @@ if (!function_exists('add_action')) {
 define('UP_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 //Includes
-include(UP_PLUGIN_DIR . 'includes/register-blocks.php');
-include(UP_PLUGIN_DIR . 'includes/blocks/search-form.php');
-include(UP_PLUGIN_DIR . 'includes/blocks/page-header.php');
+//glob is a function that returns an array of files
+$rootFiles = glob(UP_PLUGIN_DIR . 'includes/*.php');
+$subDirectoryFiles = glob(UP_PLUGIN_DIR . 'includes/**/*.php');
+$allFiles = array_merge($rootFiles, $subDirectoryFiles);
 
+foreach ($allFiles as $file) {
+    include_once($file);
+}
 
 
 //Hooks
+register_activation_hook(__FILE__, 'up_activate_plugin');
 add_action('init', 'up_register_blocks');
+add_action('rest_api_init', 'up_rest_api_init');
+add_action('wp_enqueue_scripts', 'up_enqueue_scripts');
+add_action('init', 'up_recipe_post_type');
+add_action('cuisine_add_form_fields', 'up_cuisine_add_form_fields');
+add_action('create_cuisine', 'up_save_cuisine_meta');

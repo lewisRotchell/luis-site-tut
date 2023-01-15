@@ -1,19 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
   "apiVersion": 2,
-  "name": "udemy-plus/page-header",
-  "title": "Page Header",
+  "name": "udemy-plus/header-tools",
+  "title": "Header Tools",
   "category": "text",
-  "description": "Adds a page header",
+  "description": "Adds a header toolbar that contains an authentication link",
   "textdomain": "udemy-plus",
   "attributes": {
-    "content": {
-      "type": "string",
-      "default": ""
-    },
-    "showCategory": {
+    "showAuth": {
       "type": "boolean",
-      "default": false
+      "default": true
     }
   },
   "editorScript": "file:./index.js",

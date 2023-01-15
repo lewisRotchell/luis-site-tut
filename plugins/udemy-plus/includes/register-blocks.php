@@ -15,6 +15,18 @@ function up_register_blocks()
             'options' => [
                 'render_callback' => 'up_search_page_header_render_cb'
             ]
+        ],
+        [
+            'name' => 'header-tools',
+            'options' => [
+                'render_callback' => 'up_header_tools_render_cb'
+            ]
+        ],
+        [
+            'name' => 'auth-modal',
+            'options' => [
+                'render_callback' => 'up_auth_modal_render_cb'
+            ]
         ]
     ];
 
