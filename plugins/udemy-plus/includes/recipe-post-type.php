@@ -41,7 +41,7 @@ function up_Recipe_post_type()
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 20,
-        'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt'),
+        'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields'),
         'show_in_rest'       => true,
         'description'        => __('A custom post type for recipes', 'udemy-plus'),
         'taxonomies'         => array('category', 'post_tag'),
@@ -53,5 +53,22 @@ function up_Recipe_post_type()
         'label' => __('Cuisine', 'udemy-plus'),
         'rewrite' => ['slug' => 'cuisine'],
         'show_in_rest' => true,
+    ]);
+
+
+    register_term_meta('cuisine', 'more_info_url', [
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+        'default' => '#',
+        'description' => __('A URL for more information on a cuisine', 'udemy-plus'),
+    ]);
+
+    register_post_meta('recipe', 'recipe_rating', [
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'number',
+        'default' => 0,
+        'description' => __('A rating for the recipe', 'udemy-plus'),
     ]);
 }

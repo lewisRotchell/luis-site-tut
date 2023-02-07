@@ -40,3 +40,11 @@ add_action('wp_enqueue_scripts', 'up_enqueue_scripts');
 add_action('init', 'up_recipe_post_type');
 add_action('cuisine_add_form_fields', 'up_cuisine_add_form_fields');
 add_action('create_cuisine', 'up_save_cuisine_meta');
+
+add_action('cuisine_edit_form_fields', 'up_cuisine_edit_form_fields');
+add_action('edited_cuisine', 'up_save_cuisine_meta');
+add_action('save_post_recipe', 'up_save_post_recipe');
+
+//Add new image sizes, remember that plugins are loaded before themes so we wait until the theme is loaded to add the image sizes
+add_action('after_setup_theme', 'up_setup_theme');
+add_filter('image_size_names_choose', 'up_custom_image_sizes');
